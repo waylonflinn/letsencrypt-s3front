@@ -4,6 +4,7 @@ import sys
 import logging
 import re
 import subprocess
+import datetime
 
 import zope.component
 import zope.interface
@@ -54,7 +55,7 @@ class Installer(common.Plugin):
         client = boto3.client('iam')
         cf_client = boto3.client('cloudfront')
 
-        name = "le-%s" % domain
+        name = "%s-%s" % (domain, datetime.date.today())
         body = open(cert_path).read()
         key = open(key_path).read()
         chain = open(chain_path).read()
