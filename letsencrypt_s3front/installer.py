@@ -61,7 +61,7 @@ class Installer(common.Plugin):
         chain = open(chain_path).read()
         # Upload cert to IAM
         response = client.upload_server_certificate(
-            Path="/cloudfront/letsencrypt/",
+            Path="/cloudfront/certbot/",
             ServerCertificateName=name,
             CertificateBody=body,
             PrivateKey=key,
